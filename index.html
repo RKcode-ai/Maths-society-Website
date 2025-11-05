@@ -14,18 +14,12 @@
             <img src="PHOTO-2025-11-02-23-22-34.jpg" alt="Math Society Logo">
             <span>Math Society</span>
         </a>
-        <ul class="nav-links">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <!-- kept only the side menu button, removed the <li> links -->
+        <button class="side-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span class="hamburger" aria-hidden="true"></span>
+        </button>
     </nav>
 </header>
-
-<!-- Side menu button (floating) -->
-<button class="side-menu-btn" aria-label="Open menu" aria-expanded="false">
-    <span class="hamburger" aria-hidden="true">Open</span>
-</button>
 
 <!-- Side modal (overlay + panel) -->
 <div class="side-modal" role="dialog" aria-modal="true" aria-hidden="true">
@@ -37,6 +31,7 @@
                 <li><a href="#about" class="side-link">About Us</a></li>
                 <li><a href="#resources" class="side-link">Resources</a></li>
                 <li><a href="#contact" class="side-link">Contact</a></li>
+                <li><a href="https://constructor-math.github.io/manual/" class="side-link">Manual</a></li>
             </ul>
         </nav>
     </aside>
@@ -75,6 +70,9 @@
         <p>Have questions? Want to join? Reach out to us!</p>
         <p>Email: <a href="mailto:constructor.maths@gmail.com">contact@mathsociety.example.com</a></p>
     </section>
+    <section>
+
+    </section>
 </main>
 
 <footer>
@@ -91,7 +89,7 @@
 <style>
 
 :root {
-    --primary-color: #005A9C;
+    --primary-color: #7D1201;
     --secondary-color: #DD4A48;
     --light-gray: #f4f4f4;
     --dark-gray: #333;
@@ -151,37 +149,13 @@ header nav {
     margin-right: 10px;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
+/* removed header list items; kept only button */
 
-.nav-links li {
-    margin-left: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--secondary-color);
-}
-
-/* Side menu button (floating) */
+/* Side menu button (in header, right side) */
 .side-menu-btn {
-    position: fixed;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
     width: 48px;
     height: 48px;
-    background: var(--primary-color);
+    background: #7D1201;
     color: white;
     border: none;
     border-radius: 8px;
@@ -193,7 +167,7 @@ header nav {
     justify-content: center;
     transition: transform 0.25s ease, background 0.25s ease;
 }
-.side-menu-btn:active { transform: translateY(-50%) scale(0.98); }
+.side-menu-btn:active { transform: scale(0.98); }
 
 .hamburger,
 .hamburger::before,
@@ -238,17 +212,17 @@ header nav {
     transition: opacity 300ms ease;
 }
 
-/* panel slides in from left */
+/* panel slides in from right */
 .side-modal-panel {
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
     bottom: 0;
     width: 84%;
     max-width: 340px;
     background: #fff;
-    box-shadow: 2px 0 16px rgba(0,0,0,0.15);
-    transform: translateX(-110%);
+    box-shadow: -2px 0 16px rgba(0,0,0,0.15);
+    transform: translateX(110%);
     transition: transform 350ms cubic-bezier(.2,.9,.2,1);
     padding: 1.25rem;
     display: flex;
@@ -369,8 +343,6 @@ footer {
     padding: 2rem 0;
     margin-top: 2rem;
 }
-
-/* Responsive: hide floating button on very wide screens if you prefer */
 
 </style>
 <script>
