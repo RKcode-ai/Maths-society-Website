@@ -75,7 +75,7 @@
 
         <ul class="social-links">
         <!-- SharePoint link (replace with your SharePoint link) -->
-        <li><a  href="https://yoursharepointlink.com" target="_blank" title="SharePoint" class="microsoft"><img class="img-icon" src="sharepoint-logotype.png"/></a></li>
+        <li><a  href="https://login.microsoftonline.com/f78e973e-5c0b-4ab8-bbd7-9887c95a8ebd/oauth2/authorize?client%5Fid=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&response%5Fmode=form%5Fpost&response%5Ftype=code%20id%5Ftoken&resource=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&scope=openid&nonce=760C08CB1EEF8BE83CC3B1914A97BD00EEDAB8A0CA433156%2D588466EE8EA0419D2AE9F444B4B962BE29922E1DC4A2BE080DCAC7BAF02D9225&redirect%5Furi=https%3A%2F%2Fconstructoruniversity%2Esharepoint%2Ecom%2F%5Fforms%2Fdefault%2Easpx&state=OD0w&claims=%7B%22id%5Ftoken%22%3A%7B%22xms%5Fcc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&wsucxt=1&cobrandid=11bd8083%2D87e0%2D41b5%2Dbb78%2D0bc43c8a8e8a&client%2Drequest%2Did=4970d6a1%2D60d1%2De000%2D714b%2D67dfac5f9438" target="_blank" title="SharePoint" class="microsoft"><img class="img-icon" src="sharepoint-logotype.png"/></a></li>
 
         <!-- YouTube link (replace with your YouTube channel link) -->
         <li><a href="https://www.youtube.com/@MathClubCUB" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a></li>
@@ -87,7 +87,11 @@
         <li><a href="https://www.instagram.com/mathclub.cube/#" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a></li>
 
         <!-- Gmail link (opens Gmail to send email) -->
-        <li><a href="mailto:NEEDS_FIXING@gmail.com" target="_blank" title="Email" class="gmail"><i class="fas fa-envelope"></i></a></li>
+        <li>
+          <a href="mailto:constructor.maths@gmail.com" class="gmail" title="Email" id="emailLink">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </li>
     </ul>
       
     </section>
@@ -557,6 +561,15 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             closeSideModal();
         });
+    });
+
+    document.getElementById('emailLink').addEventListener('click', (e) => {
+      // if user has no handler for mailto, open Gmail web compose
+      // allow default to proceed briefly, then fallback
+      setTimeout(() => {
+        // open Gmail compose in new tab as fallback
+        window.open('https://mail.google.com/mail/?view=cm&fs=1&to=constructor.maths%40gmail.com', '_blank', 'noopener');
+      }, 500);
     });
 });
 </script>
